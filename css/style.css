@@ -8252,11 +8252,11 @@ h1, h2, h3, h4, h5,
       background: #6c63ff;
       border: 1px solid #6c63ff; }
   .ftco-navbar-light .navbar-nav > .nav-item.cta.cta-colored a {
-    border: 1px solid white;
-    background: white !important; }
+    border: 1px solid #ff6347;
+    background: #ff6347 !important; }
   .ftco-navbar-light .navbar-nav > .nav-item.active > a {
     color: rgba(255, 255, 255, 0.5);
-    color: black; }
+    color: #6c63ff; }
   .ftco-navbar-light .navbar-toggler {
     border: none;
     color: rgba(255, 255, 255, 0.5) !important;
@@ -9121,7 +9121,7 @@ textarea.form-control {
   visibility: hidden; }
 
 .bg-primary {
-  background: #6c63ff !important; }
+  background: black !important; }
 
 .media-custom {
   background: #fff; }
