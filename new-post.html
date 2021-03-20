@@ -88,16 +88,32 @@
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="fullname">Job Title</label>
                   <input type="text" id="fullname" class="form-control" placeholder="eg. Data Engineer">
+
                 </div>
               </div>
 
               <div class="row form-group mb-5">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="font-weight-bold" for="fullname">Company</label>
-                  <input type="text" id="fullname" class="form-control" placeholder="eg. Amazon, Inc.">
+                  <label class="font-weight-bold" for="company">Company</label>
+                  <input type="text" id="company" class="form-control" placeholder="eg. Amazon, Inc.">
                 </div>
               </div>
 
+                   <div class="row form-group mb-5">
+                     <div class="col-md-12 mb-3 mb-md-0">
+                       <label class="font-weight-bold" for="num">Company Number</label>
+                       <input type="number" id="num" class="form-control" placeholder="eg. XXXXXXXXXX">
+                     </div>
+                     <p id="phNumber" style="font-size: 10px;color:red;" ></p>
+                   </div>
+
+                   <div class="row form-group mb-5">
+                     <div class="col-md-12 mb-3 mb-md-0">
+                       <label class="font-weight-bold" for="email">Company email</label>
+                       <input type="email" id="email" class="form-control" placeholder="eg. Kakashi@Hidden.Leaf">
+                     </div>
+                     <p id="emailId" style="font-size: 10px;color:red;"></p>
+                   </div>
 
               <div class="row form-group">
                 <div class="col-md-12"><h3>Job Type</h3></div>
@@ -122,8 +138,8 @@
                   </label>
                 </div>
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label for="option-job-type-4">
-                    <input type="radio" id="option-job-type-4" name="job-type"> Termporary
+                  <label for="option-job-type-5">
+                    <input type="radio" id="option-job-type-5" name="job-type"> Termporary
                   </label>
                 </div>
 
@@ -136,8 +152,21 @@
 ">
                 </div>
               </div>
+                    ADDED A MAP
+                   <div id="map" style="width:400px;height:400px;background:grey"></div>
+                   <script>
+                     function myMap() {
+                       var mapOptions = {
+                         center: new google.maps.LatLng(51.5, -0.12),
+                         zoom: 10,
+                         mapTypeId: google.maps.MapTypeId.HYBRID
+                       }
+                       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                     }
+                   </script>
+                   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 
-              <div class="row form-group">
+                   <div class="row form-group">
                 <div class="col-md-12"><h3>Job Description</h3></div>
                 <div class="col-md-12 mb-3 mb-md-0">
                   <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
@@ -146,11 +175,33 @@
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Post" class="btn btn-primary  py-2 px-5">
+
+
+                    <input type="submit"  value="Post" class="btn btn-primary  py-2 px-5" onclick="myFunction()" >
+
+
                 </div>
               </div>
+                   <script>
+                     function myFunction() {
+                       var e = document.getElementById("email").value;
+                       var p = document.getElementById("num").value;
+                       var format=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                       console.log("EMAIL : ",e);
+                       console.log("Phone Number : ",p);
+                       if(p.length !== 10){
+                         document.getElementById("phNumber").innerHTML = "Incorrect Phone Number"
+                       }
+                       else{
+                         document.getElementById("phNumber").innerHTML = ""
+                       }
+                       if(!e.match(format)){
+                         document.getElementById("emailId").innerHTML="Invalid Email ID"
+                       }
+                     }
+                   </script>
 
-  
+
             </form>
           </div>
 
@@ -178,28 +229,7 @@
       </div>
     </div>
 		
-<!--		<section class="ftco-section-parallax">-->
-<!--      <div class="parallax-img d-flex align-items-center">-->
-<!--        <div class="container">-->
-<!--          <div class="row d-flex justify-content-center">-->
-<!--            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">-->
-<!--              <h2>Subcribe to our Newsletter</h2>-->
-<!--              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>-->
-<!--              <div class="row d-flex justify-content-center mt-4 mb-4">-->
-<!--                <div class="col-md-12">-->
-<!--                  <form action="#" class="subscribe-form">-->
-<!--                    <div class="form-group d-flex">-->
-<!--                      <input type="text" class="form-control" placeholder="Enter email address">-->
-<!--                      <input type="submit" value="Subscribe" class="submit px-3">-->
-<!--                    </div>-->
-<!--                  </form>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </section>-->
+
 
   <footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
@@ -267,8 +297,8 @@
       </div>
     </div>
   </footer>
-    
-  
+
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -289,6 +319,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
+
   </body>
 </html>
